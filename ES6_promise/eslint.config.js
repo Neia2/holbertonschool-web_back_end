@@ -1,13 +1,17 @@
-import { ESLint } from 'eslint';
+import js from '@eslint/js';
 
 export default [
+  js.configs.recommended,
   {
-    ignores: ['node_modules/**'],
-  },
-  {
-    files: ['**/*.js', '**/*.mjs'],
+    files: ['**/*.js'],
     languageOptions: {
       sourceType: 'module',
+      ecmaVersion: 2020,
+      globals: {
+        console: 'readonly',
+        setTimeout: 'readonly',
+        module: 'readonly',
+      },
     },
     rules: {
       'no-tabs': 'error',
@@ -18,6 +22,7 @@ export default [
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'eol-last': ['error', 'always'],
       'no-unused-vars': 'error',
+      'no-undef': 'error',
     },
   },
 ];
