@@ -13,11 +13,10 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "jest": "^27.0.6",
-    "babel-jest": "^27.0.6",
     "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0"
-  },
-  "dependencies": {}
+    "@babel/preset-env": "^7.15.0",
+    "babel-jest": "^27.0.6",
+    "eslint": "^9.8.0",
+    "jest": "^27.0.6"
+  }
 }
