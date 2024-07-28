@@ -1,18 +1,11 @@
+import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
+
+const compat = new FlatCompat();
 
 export default [
   js.configs.recommended,
   {
-    files: ['**/*.js'],
-    languageOptions: {
-      sourceType: 'module',
-      ecmaVersion: 2020,
-      globals: {
-        console: 'readonly',
-        setTimeout: 'readonly',
-        module: 'readonly',
-      },
-    },
     rules: {
       'no-tabs': 'error',
       'indent': ['error', 2],
@@ -22,7 +15,6 @@ export default [
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'eol-last': ['error', 'always'],
       'no-unused-vars': 'error',
-      'no-undef': 'error',
     },
   },
 ];
