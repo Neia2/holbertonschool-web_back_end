@@ -6,5 +6,9 @@ export default function getFullResponseFromAPI(success) {
     } else {
       reject(new Error('The fake API is not working currently'));
     }
+  }).catch((error) => {
+    console.error('Handled promise rejection:', error);
+    // Return a resolved promise with an error message to avoid unhandled rejection
+    return { status: 'error', message: error.message };
   });
 }
