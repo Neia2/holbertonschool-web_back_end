@@ -1,12 +1,12 @@
 export default function taskBlock(trueOrFalse) {
-    const task = false;
-    const task2 = true;
-  
-    if (trueOrFalse) {
-      const task = true;
-      const task2 = false;
-    }
-  
-    return [task, task2];
+  const task = false; // Declare as `const` for block scope
+  const task2 = true; // Declare as `const` for block scope
+
+  if (trueOrFalse) {
+    const innerTask = true; // Use different names to avoid overwriting
+    const innerTask2 = false;
+    console.log(innerTask, innerTask2); // If needed, use them inside the block
   }
-  
+
+  return [task, task2];
+}
