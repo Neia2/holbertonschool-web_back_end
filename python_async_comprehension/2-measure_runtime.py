@@ -6,9 +6,11 @@ import time
 from typing import List
 from async_comprehension import async_comprehension
 
+
 async def measure_runtime() -> float:
     """
-    Executes async_comprehension four times in parallel and measures the runtime.
+    Executes async_comprehension four times in parallel and
+    measures the runtime.
     Returns the total time taken.
     """
     start_time = time.perf_counter()
