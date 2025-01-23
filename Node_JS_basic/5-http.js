@@ -1,5 +1,6 @@
 const http = require('http'); // Import HTTP module
 const fs = require('fs'); // Import File System module
+/* eslint jest/require-hook: "off" */
 
 // Create the HTTP server
 const app = http.createServer((req, res) => {
@@ -7,9 +8,7 @@ const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
-  } 
-  // Route: "/students"
-  else if (req.url === '/students') {
+  } else if (req.url === '/students') {
     const databasePath = process.argv[2]; // Get database file from command-line argument
 
     fs.readFile(databasePath, 'utf-8', (err, data) => {
@@ -27,18 +26,16 @@ const app = http.createServer((req, res) => {
       const sweStudents = students.filter((_, index) => rows[index].includes('SWE')); // SWE students
 
       // Build the response text
-      const responseText = `This is the list of our students\n` +
-        `Number of students: ${students.length}\n` +
-        `Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}\n` +
-        `Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`;
+      const responseText = 'This is the list of our students\n'
+        + `Number of students: ${students.length}\n`
+        + `Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}\n`
+        + `Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`;
 
       // Send the response
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.end(responseText);
     });
-  } 
-  // Default: Unknown route
-  else {
+  } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not Found');
   }
